@@ -1,7 +1,10 @@
 import mongoose from "mongoose";
 
 const postSchema = mongoose.Schema({
-    userName: String,
+    userName: {
+        type: String,
+        required: true
+    },
     name: String,
     reps: {
         type: Number,
@@ -18,7 +21,7 @@ const postSchema = mongoose.Schema({
     createdAt: {
         type: Date,
         default: new Date()
-    }
+    },
 });
 
 const PostWorkout = mongoose.model('PostWorkout', postSchema);

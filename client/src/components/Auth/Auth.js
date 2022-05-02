@@ -71,7 +71,7 @@ const Auth = () => {
                 </Avatar>
                 <Typography variant='h5'>{isSignup ? 'Sign Up' : 'Log In'}</Typography>
                 <form className={classes.form} onSubmit={handleSubmit}>
-                    <Grid container spacing={2}>
+                    {/* <Grid container spacing={2}>
                         {isSignup && (
                             <>
                                 <Input name="firstName" label="First Name" handleChange={handleChange} half />
@@ -83,9 +83,9 @@ const Auth = () => {
                         {isSignup &&
                             <Input name="confirmPassword" label="Repeat Password" handleChange={handleChange} type='password' />
                         }
-                    </Grid>
+                    </Grid> */}
 
-                    <Button type="submit" fullWidth variant='contained' color="primary" className={classes.submit}>{isSignup ? 'Sign Up' : 'Login In'}</Button>
+                    {/* <Button type="submit" fullWidth variant='contained' color="primary" className={classes.submit}>{isSignup ? 'Sign Up' : 'Login In'}</Button> */}
                     <GoogleLogin
                         clientId='901325410159-g6d88k4ej0jqvbe8nm8q33s599jphmef.apps.googleusercontent.com'
                         render={(renderProps) => (
@@ -96,7 +96,7 @@ const Auth = () => {
                                 disabled={renderProps.disabled}
                                 startIcon={<Icon />}
                                 variant="contained">
-                                Google Sign In
+                                Google {isSignup ? 'Sign Up' : 'Log In'}
                             </Button>
                         )}
                         onSuccess={googleSuccess}
@@ -109,8 +109,8 @@ const Auth = () => {
                         </Grid>
                     </Grid>
                 </form>
-            </Paper>
-        </Container>
+            </Paper >
+        </Container >
     )
 }
 

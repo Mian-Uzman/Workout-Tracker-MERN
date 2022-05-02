@@ -3,8 +3,8 @@ import { getWorkouts, createWorkout, updateWorkout, deleteWorkout } from "../con
 
 const router = express.Router();
 
-router.get('/', getWorkouts);
-router.post('/', createWorkout);
+router.get('/get-workouts', getWorkouts);
+router.post('/create-workout', createWorkout);
 router.patch('/:id', updateWorkout);
 router.delete('/:id', deleteWorkout);
 

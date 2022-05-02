@@ -15,9 +15,7 @@ export const getWorkouts = async (req, res) => {
 export const createWorkout = async (req, res) => {
 
     const workout = req.body;
-    console.log(workout)
     const newWorkout = await PostWorkout(workout);
-    console.log(newWorkout)
     try {
         await newWorkout.save();
         res.status(201).json(newWorkout);

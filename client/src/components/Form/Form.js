@@ -9,7 +9,7 @@ export default function Form({ currentId, setCurrentId }) {
     const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')).result.name);
 
     const [workoutData, setWorkoutData] = useState({
-        userName: '',
+        userName: JSON.parse(localStorage.getItem('profile')).result.googleId,
         name: '',
         reps: '',
         sets: '',
@@ -21,7 +21,7 @@ export default function Form({ currentId, setCurrentId }) {
 
     useEffect(() => {
         //setUser(JSON.parse(localStorage.getItem('profile')));
-        setWorkoutData({ ...workoutData, userName: user })
+        // setWorkoutData({ ...workoutData, userName: user })
         if (workout) {
             setWorkoutData(workout);
         }
@@ -35,6 +35,8 @@ export default function Form({ currentId, setCurrentId }) {
 
         }
         else {
+            console.log(workoutData);
+
             dispatch(createWorkout(workoutData));
         }
         clear();
@@ -43,6 +45,7 @@ export default function Form({ currentId, setCurrentId }) {
     const clear = () => {
         setCurrentId(null);
         setWorkoutData({
+            userName: JSON.parse(localStorage.getItem('profile')).result.googleId,
             name: '',
             reps: '',
             sets: '',
