@@ -1,28 +1,66 @@
 import React, { useState } from 'react';
 import { Avatar, Button, Paper, Grid, Container, Typography, TextField } from '@material-ui/core';
 import { GoogleLogin } from "react-google-login";
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import useStyles from "./styles";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Input from './Input';
-import Icon from "./icon"
+import Icon from "./icon";
+import { signin, signup } from "../../actions/auth";
 
 const Auth = () => {
     const [showPassword, setShowPassword] = useState(false);
     const classes = useStyles();
     const [isSignup, setIsSignup] = useState(false);
-    const handleSubmit = () => {
+    const [formData, setFormData] = useState({
+        firstName: '',
+        lastName: '',
+        email: '',
+        password: '',
+        confirmPassword: ''
+    })
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
 
-    };
-    const handleChange = () => {
 
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+
+        if (isSignup) {
+            dispatch(signup(formData, navigate));
+        }
+        else {
+            dispatch(signin(formData, navigate));
+
+        }
     };
+    const handleChange = (e) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value })
+    };
+
     const handleShowPassword = () => setShowPassword((prevShowPassword) => !prevShowPassword);
     const switchMode = () => {
         setIsSignup((prevIsSignup) => !prevIsSignup);
 
     };
-    const googleSuccess = () => { }
-    const googleFailure = () => { }
+    const googleSuccess = async (res) => {
+        const result = res?.profileObj;
+        const token = res?.tokenId;
+
+        try {
+            dispatch({ type: 'AUTH', data: { result, token } });
+            navigate('/');
+        } catch (error) {
+            console.log(error);
+        }
+
+    }
+    const googleFailure = (error) => {
+        console.log(error)
+        console.log("Google sign in failed");
+    }
 
 
     return (
@@ -46,11 +84,13 @@ const Auth = () => {
                             <Input name="confirmPassword" label="Repeat Password" handleChange={handleChange} type='password' />
                         }
                     </Grid>
+
+                    <Button type="submit" fullWidth variant='contained' color="primary" className={classes.submit}>{isSignup ? 'Sign Up' : 'Login In'}</Button>
                     <GoogleLogin
-                        clientId='Googleid'
+                        clientId='901325410159-g6d88k4ej0jqvbe8nm8q33s599jphmef.apps.googleusercontent.com'
                         render={(renderProps) => (
                             <Button className={classes.googleButton}
-                                color="primart"
+                                color="primary"
                                 fullWidth
                                 onClick={renderProps.onClick}
                                 disabled={renderProps.disabled}
@@ -63,8 +103,7 @@ const Auth = () => {
                         onFailure={googleFailure}
                         cookiePolicy="single_host_origin"
                     />
-                    <Button type="submit" fullWidth variant='contained' color="primary" className={classes.submit}>{isSignup ? 'Sign Up' : 'Login In'}</Button>
-                    <Grid container justify="flex-end">
+                    <Grid container justifyContent="flex-end">
                         <Grid item>
                             <Button onClick={switchMode}>{isSignup ? 'Already have an account? Sign In' : "Don't have an account? Sign Up"}</Button>
                         </Grid>

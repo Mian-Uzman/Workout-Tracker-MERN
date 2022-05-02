@@ -11,16 +11,16 @@ export default makeStyles({
         maxWidth: 400,
         margin: "auto",
         transition: "0.3s",
-        boxShadow: "0 8px 40px -12px rgba(0,0,0,0.3)",
+        boxShadow: "0 8px 40px -12px rgba(0,0,0,0.4)",
         "&:hover": {
-            boxShadow: "0 16px 70px -12.125px rgba(0,0,0,0.3)"
+            boxShadow: "0 16px 70px -12.125px rgba(0,0,0,0.5)"
         },
-        borderRadius: 20,
+        borderRadius: 15,
     },
     content: {
         textAlign: "left",
         padding: 20,
-        color: 'purple',
+        color: '#006078',
         textShadow: "2px 2px 8px #d9d9d9",
     },
     overlay: {

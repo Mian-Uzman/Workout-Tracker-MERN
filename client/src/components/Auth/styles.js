@@ -23,11 +23,12 @@ export default makeStyles((theme) => ({
         marginTop: theme.spacing(3),
     },
     submit: {
+        marginTop: theme.spacing(3),
+
         margin: theme.spacing(1, 0, 2),
         borderRadius: 15,
     },
     googleButton: {
-        marginTop: theme.spacing(3),
         marginBottom: theme.spacing(2),
         borderRadius: 15,
     },

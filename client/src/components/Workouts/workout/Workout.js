@@ -33,7 +33,7 @@ const Workout = ({ workout, setCurrentId, setShowForm }) => {
                 <Typography variant="body1" color="textSecondary" component="p">Reps: {workout.reps}</Typography>
             </CardContent>
             <CardContent>
-                <Typography variant="body1" color="textSecondary" component="p">Weight: {workout.weight}</Typography>
+                <Typography variant="body1" color="textSecondary" component="p">Weight: {workout.weight} kg</Typography>
             </CardContent>
             <CardContent>
                 <Typography variant="body1" color="textSecondary" component="p">Sets: {workout.sets} </Typography>

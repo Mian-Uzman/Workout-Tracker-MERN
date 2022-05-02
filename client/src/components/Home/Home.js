@@ -34,7 +34,7 @@ const Home = () => {
             </Container >
             <Grow in>
                 <Container>
-                    <Grid container justify='space-between' alignItems='stretch' spacing={2}>
+                    <Grid container justifyContent='space-between' alignItems='stretch' spacing={2}>
                         <Grid item xs={12}>
                             <Workouts setCurrentId={setCurrentId} setShowForm={setShowForm} />
                         </Grid>

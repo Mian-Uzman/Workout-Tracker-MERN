@@ -6,7 +6,10 @@ import { createWorkout, updateWorkout } from '../../actions/workouts';
 
 export default function Form({ currentId, setCurrentId }) {
     const workout = useSelector((state) => currentId ? state.workouts.find((p) => p._id === currentId) : null);
+    const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')).result.name);
+
     const [workoutData, setWorkoutData] = useState({
+        userName: '',
         name: '',
         reps: '',
         sets: '',
@@ -17,15 +20,19 @@ export default function Form({ currentId, setCurrentId }) {
     const dispatch = useDispatch();
 
     useEffect(() => {
+        //setUser(JSON.parse(localStorage.getItem('profile')));
+        setWorkoutData({ ...workoutData, userName: user })
         if (workout) {
             setWorkoutData(workout);
         }
     }, [workout])
 
     const handleSubmit = (e) => {
+
         e.preventDefault();
         if (currentId) {
             dispatch(updateWorkout(currentId, workoutData));
+
         }
         else {
             dispatch(createWorkout(workoutData));

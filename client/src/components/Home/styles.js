@@ -21,12 +21,12 @@ export default makeStyles(() => ({
         marginLeft: '70px',
     },
     buttonAdd: {
-        borderRadius: 20,
-        backgroundColor: 'purple',
+        borderRadius: 15,
+        backgroundColor: '#005761 ',
         color: 'white',
         height: '75px',
         width: '250px',
         fontSize: '20px',
-
+        zIndex: '100'
     }
 }));

@@ -7,12 +7,10 @@ export default makeStyles((theme) => ({
         },
     },
     paper: {
-        margin: '35px 0px 75px 0px',
+        margin: '10px 0px 40px 0px',
         padding: theme.spacing(2),
-        borderRadius: 15,
-        maxWidth: '400px',
-        boxShadow: "0 8px 40px -12px rgba(0,0,0,0.4)",
-
+        borderRadius: 20,
+        maxWidth: '400px'
     },
     form: {
         display: 'flex',
@@ -24,10 +22,10 @@ export default makeStyles((theme) => ({
         margin: '10px 0',
     },
     buttonSubmit: {
-        borderRadius: 15,
+        borderRadius: 20,
         marginBottom: 10,
     },
     buttonClear: {
-        borderRadius: 15,
+        borderRadius: 20,
     }
 }));

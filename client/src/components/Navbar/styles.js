@@ -3,20 +3,20 @@ import { deepPurple } from '@material-ui/core/colors';
 
 export default makeStyles((theme) => ({
     appBar: {
-        borderRadius: 15,
-        margin: '20px 0 20px  0',
         padding: '30px',
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-between',
-        minHeight: '100px',
-        backgroundColor: 'white'
+        height: '75px',
+        backgroundColor: '#003542',
+        background: 'linear-gradient(45deg,#005761 30%,#00a5b8 90%)',
+
     },
     heading: {
-        color: 'purple',
-        fontSize: '45px',
-        textShadow: "4px 4px 8px #d9d9d9",
+        color: 'white',
+        fontSize: '35px',
         textDecoration: 'none',
+        cursor: 'pointer',
     },
 
     toolbar: {
@@ -32,13 +32,12 @@ export default makeStyles((theme) => ({
     userName: {
         display: 'flex',
         alignItems: 'center',
+        color: 'white',
+
     },
     brandContainer: {
         display: 'flex',
         alignItems: 'center',
     },
-    purple: {
-        color: theme.palette.getContrastText(deepPurple[500]),
-        backgroundColor: deepPurple[500],
-    },
+
 }));
