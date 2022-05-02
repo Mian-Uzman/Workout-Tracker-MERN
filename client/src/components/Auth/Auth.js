@@ -5,12 +5,12 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import useStyles from "./styles";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
-import Input from './Input';
+// import Input from './Input';
 import Icon from "./icon";
 import { signin, signup } from "../../actions/auth";
 
 const Auth = () => {
-    const [showPassword, setShowPassword] = useState(false);
+    // const [showPassword, setShowPassword] = useState(false);
     const classes = useStyles();
     const [isSignup, setIsSignup] = useState(false);
     const [formData, setFormData] = useState({
@@ -36,11 +36,11 @@ const Auth = () => {
 
         }
     };
-    const handleChange = (e) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value })
-    };
+    // const handleChange = (e) => {
+    //     setFormData({ ...formData, [e.target.name]: e.target.value })
+    // };
 
-    const handleShowPassword = () => setShowPassword((prevShowPassword) => !prevShowPassword);
+    // const handleShowPassword = () => setShowPassword((prevShowPassword) => !prevShowPassword);
     const switchMode = () => {
         setIsSignup((prevIsSignup) => !prevIsSignup);
 
